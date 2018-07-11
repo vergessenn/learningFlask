@@ -6,7 +6,12 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    now = datetime.datetime.now()
-    new_year = now.month == 1 and now.day == 1
-    
-    return render_template("index.html", neujahr = new_year)
+    return render_template("index.html")
+
+@app.route("/more")
+def more():
+    return render_template("next.html")
+
+@app.route("/back")
+def back():
+    return render_template("index.html")
