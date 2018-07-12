@@ -1,6 +1,5 @@
-import datetime
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -8,10 +7,7 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-@app.route("/more")
-def more():
-    return render_template("next.html")
-
-@app.route("/back")
-def back():
-    return render_template("index.html")
+@app.route("/hello", methods=["POST"])
+def hello():
+    namea = request.form.get("name")
+    return render_template("hello.html", namea=name)
