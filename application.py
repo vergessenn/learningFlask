@@ -9,5 +9,5 @@ def index():
 
 @app.route("/hello", methods=["POST"])
 def hello():
-    namea = request.form.get("name")
-    return render_template("hello.html", namea=name)
+    name = request.form.get("name")
+    return render_template("hello.html", name=name)
